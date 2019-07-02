@@ -1,0 +1,47 @@
+PODS:
+  - FLAnimatedImage (1.0.12)
+  - KSPhotoBrowser (0.2.3):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage (~> 4.0)
+    - SDWebImage/GIF
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - SDWebImage/GIF (4.4.2):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - KSPhotoBrowser (from `../`)
+  - YYWebImage (~> 1.0.5)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FLAnimatedImage
+    - SDWebImage
+    - YYCache
+    - YYImage
+    - YYWebImage
+
+EXTERNAL SOURCES:
+  KSPhotoBrowser:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  KSPhotoBrowser: 6b1b86deae7585af51a9e8ede606079f78ce2a68
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
+
+PODFILE CHECKSUM: 3ed909104fde36a647416264acb242e4d1f53b12
+
+COCOAPODS: 1.5.3
