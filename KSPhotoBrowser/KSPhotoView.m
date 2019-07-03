@@ -214,11 +214,11 @@ const CGFloat kKSPhotoViewMaxScale = 3;
 - (void)setPlayerFrame:(CGRect)playerFrame {
     _playerFrame = playerFrame;
     CGFloat yOffset = 0;
-    if ( playerFrame.size.height > ceilf(playerFrame.size.width*9/16) ) {
-        yOffset = playerFrame.size.height/2 -ceilf(playerFrame.size.width*9/16)/2;
-    }
+    CGFloat maxHeight = ceilf(playerFrame.size.width*2/3);
+    CGFloat suggestHeight = MIN(maxHeight, playerFrame.size.height);
+    yOffset = playerFrame.size.height/2 - suggestHeight/2;
     // center player view
-    _playerView.frame = CGRectMake(playerFrame.origin.x, playerFrame.origin.y +yOffset, playerFrame.size.width, ceilf(playerFrame.size.width*9/16));
+    _playerView.frame = CGRectMake(playerFrame.origin.x, playerFrame.origin.y +yOffset, playerFrame.size.width, suggestHeight);
     [_playerView setNeedsLayout];
     [self setNeedsLayout];
 }
@@ -282,7 +282,7 @@ const CGFloat kKSPhotoViewMaxScale = 3;
     (scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5 : 0.0;
     
     _imageView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
-                                 scrollView.contentSize.height * 0.5 + offsetY);
+                                    scrollView.contentSize.height * 0.5 + offsetY);
 }
 
 #pragma mark - GestureRecognizerDelegate

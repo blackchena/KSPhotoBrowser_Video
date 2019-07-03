@@ -105,10 +105,10 @@ static Class ImageViewClass = nil;
     
     if (_pageindicatorStyle == KSPhotoBrowserPageIndicatorStyleDot) {
         if (_photoItems.count > 1) {
-//            _pageControl = [[UIPageControl alloc] init];
-//            _pageControl.numberOfPages = _photoItems.count;
-//            _pageControl.currentPage = _currentPage;
-//            [self.view addSubview:_pageControl];
+            //            _pageControl = [[UIPageControl alloc] init];
+            //            _pageControl.numberOfPages = _photoItems.count;
+            //            _pageControl.currentPage = _currentPage;
+            //            [self.view addSubview:_pageControl];
         }
     } else {
         _pageLabel = [[UILabel alloc] init];
@@ -126,7 +126,7 @@ static Class ImageViewClass = nil;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-   
+    
     KSPhotoItem *item = [_photoItems objectAtIndex:_currentPage];
     if (_delegate && [_delegate respondsToSelector:@selector(ks_photoBrowser:didSelectItem:atIndex:)]) {
         [_delegate ks_photoBrowser:self didSelectItem:item atIndex:_currentPage];
@@ -135,7 +135,7 @@ static Class ImageViewClass = nil;
     KSPhotoView *photoView = [self photoViewForPage:_currentPage];
     photoView.imageView.image = item.thumbImage;
     NSLog(@"frame = %@", NSStringFromCGRect(photoView.bounds));
-    photoView.playerFrame = photoView.bounds;
+    photoView.playerFrame = photoView.imageView.frame;
     [photoView resizeImageView];
     
     if (_backgroundStyle == KSPhotoBrowserBackgroundStyleBlur) {
@@ -535,6 +535,12 @@ static Class ImageViewClass = nil;
 }
 
 - (void)configPageLabelWithPage:(NSUInteger)page {
+    KSPhotoItem *item = [_photoItems objectAtIndex:_currentPage];
+    if (item.videoUrl) {
+        _pageLabel.hidden = YES;
+    } else {
+        _pageLabel.hidden = NO;
+    }
     _pageLabel.text = [NSString stringWithFormat:@"%lu / %lu", page+1, _photoItems.count];
 }
 
