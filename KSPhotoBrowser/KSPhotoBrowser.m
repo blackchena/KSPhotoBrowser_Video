@@ -734,6 +734,10 @@ static Class ImageViewClass = nil;
     } completion:nil];
 }
 
+- (void)dismissAnimation {
+    [self showDismissalAnimation];
+}
+
 - (void)showDismissalAnimation {
     KSPhotoItem *item = [_photoItems objectAtIndex:_currentPage];
     KSPhotoView *photoView = [self photoViewForPage:_currentPage];

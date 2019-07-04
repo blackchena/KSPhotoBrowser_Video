@@ -51,7 +51,7 @@ typedef NS_ENUM(NSUInteger, KSPhotoBrowserImageLoadingStyle) {
 - (void)showFromViewController:(UIViewController *)vc;
 - (UIImage *)imageForItem:(KSPhotoItem *)item;
 - (UIImage *)imageAtIndex:(NSUInteger)index;
-
+- (void)dismissAnimation;
 @end
 
 @protocol KSPhotoBrowserDelegate <NSObject>
