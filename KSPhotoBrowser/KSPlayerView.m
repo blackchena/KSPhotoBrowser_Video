@@ -152,7 +152,7 @@
     }
     self.playButton.hidden = NO;
     self.playButton.selected = NO;
-    
+    [self seekToStartTime:0];
 //    [self.videoPlayer.currentItem seekToTime:kCMTimeZero];
 }
 
