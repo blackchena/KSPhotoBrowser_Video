@@ -213,12 +213,13 @@ const CGFloat kKSPhotoViewMaxScale = 3;
 
 - (void)setPlayerFrame:(CGRect)playerFrame {
     _playerFrame = playerFrame;
-    CGFloat yOffset = 0;
-    CGFloat maxHeight = ceilf(playerFrame.size.width*2/3);
-    CGFloat suggestHeight = MIN(maxHeight, playerFrame.size.height);
-    yOffset = playerFrame.size.height/2 - suggestHeight/2;
+//    CGFloat yOffset = 0;
+//    CGFloat maxHeight = ceilf(playerFrame.size.width*2/3);
+//    CGFloat suggestHeight = MIN(maxHeight, playerFrame.size.height);
+//    yOffset = playerFrame.size.height/2 - suggestHeight/2;
     // center player view
-    _playerView.frame = CGRectMake(playerFrame.origin.x, playerFrame.origin.y +yOffset, playerFrame.size.width, suggestHeight);
+//    _playerView.frame = CGRectMake(playerFrame.origin.x, playerFrame.origin.y +yOffset, playerFrame.size.width, suggestHeight);
+    _playerView.frame = self.bounds;
     [_playerView setNeedsLayout];
     [self setNeedsLayout];
 }

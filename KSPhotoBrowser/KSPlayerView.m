@@ -88,7 +88,7 @@
     }
     _videoPlayer = [AVPlayer playerWithPlayerItem:_playerItem];
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_videoPlayer];
-    
+    _playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
     _playerLayer.frame = self.bounds;
     //    _playerLayer.backgroundColor = WHITECOLOR.CGColor;
     [self.layer addSublayer:_playerLayer];
