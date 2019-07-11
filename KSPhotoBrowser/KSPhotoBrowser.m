@@ -535,6 +535,10 @@ static Class ImageViewClass = nil;
 }
 
 - (void)configPageLabelWithPage:(NSUInteger)page {
+    if (_photoItems.count <= 1) {
+        _pageLabel.hidden = YES;
+        return;
+    }
     KSPhotoItem *item = [_photoItems objectAtIndex:_currentPage];
     if (item.videoUrl) {
         _pageLabel.hidden = YES;
